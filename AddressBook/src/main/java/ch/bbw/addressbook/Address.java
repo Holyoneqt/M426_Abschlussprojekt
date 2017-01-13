@@ -21,11 +21,10 @@ public class Address {
         this.registrationDate = registrationDate;
     }
 
-    // Hoi spast
-    
 	public int getId() {
 		return id;
 	}
+	
 	public void setId(int id) {
 		this.id = id;
 	}
