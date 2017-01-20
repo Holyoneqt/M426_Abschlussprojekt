@@ -24,6 +24,22 @@
 	                	<label>Phone number:</label>
 		                <h:inputText value="#{addressViewController.phoneNumber}" class="form-control"/>
 	                </div>
+	                <div class="form-group">
+	                	<label>Email:</label>
+		                <h:inputText value="#{addressViewController.email}" class="form-control"/>
+	                </div>
+	                <div class="form-group">
+	                	<label>Category:</label>
+		                <h:inputText value="#{addressViewController.category}" class="form-control"/>
+	                </div>
+	                <div class="form-group">
+	                	<label>City:</label>
+		                <h:inputText value="#{addressViewController.city}" class="form-control"/>
+	                </div>
+	                <div class="form-group">
+	                	<label>Gender:</label>
+		                <h:inputText value="#{addressViewController.gender}" class="form-control"/>
+	                </div>
 	                <ui:fragment rendered="#{addressViewController.message.length()>0}">
 		                <div class="alert alert-info">
 		                	#{addressViewController.message}

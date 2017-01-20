@@ -18,6 +18,10 @@ public class AddressViewController {
     private String firstname;
     private String lastname;
     private String phoneNumber;
+    private String email;
+    private int category;
+    private String city;
+    private String gender;
     
     private String message;
         
@@ -32,7 +36,7 @@ public class AddressViewController {
     }
         
     public void saveAddress() {
-        Address address = new Address(0, firstname, lastname, phoneNumber);
+        Address address = new Address(0, firstname, lastname, phoneNumber,email,category,city,gender);
         addressService.registerAddress(address);
         message = "The address was saved successfully.";
         clearFields();
@@ -64,13 +68,36 @@ public class AddressViewController {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-
 	public String getMessage() {
 		return message;
 	}
 	
 	public void setMessage(String message) {
 		this.message = message;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public int getCategory() {
+		return category;
+	}
+	public void setCategory(int category) {
+		this.category = category;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
 	public String getOrderBy() {
