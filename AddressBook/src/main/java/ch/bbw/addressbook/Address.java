@@ -17,6 +17,7 @@ public class Address {
     public Address(int id, String firstname, String lastname, String phonenumber, String email, int category, String city, String gender) {
     	this(id, firstname, lastname, phonenumber, null, email, category, city, gender);
     }
+    
     public Address(int id, String firstname, String lastname, String phonenumber, Date registrationDate, String email, int category, String city, String gender) {
     	this.id = id;
         this.firstname = firstname;

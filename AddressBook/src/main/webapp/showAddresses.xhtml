@@ -17,7 +17,8 @@
 								<h:form>
 								<td>Sort by:</td>
 								<td>
-									<h:selectOneMenu value="#{addressViewController.orderBy}">
+									<h:selectOneMenu value="#{addressViewController.orderBy}" onchange="submit()"
+									 valueChangeListener="#{addressViewController.orderByChanged}">
 										<f:selectItem itemValue="lastname"
 											itemLabel="Lastname" />
 										<f:selectItem itemValue="firstname"
@@ -28,7 +29,6 @@
 											itemLabel="Registration Date" />
 									</h:selectOneMenu>
 								</td>
-								<td><2h:commandButton action="#{addressViewController.getAddresses()}" value="Sort" /></td>
 								</h:form>
 							</tr>
 							<tr>
@@ -44,7 +44,7 @@
 						</thead>
 						<tbody>
 							<ui:repeat var="address"
-								value="#{addressViewController.getAddresses(addressViewController.orderBy)}">
+								value="#{addressViewController.addresses}">
 								<tr>
 									<td>#{address.lastname}</td>
 									<td>#{address.firstname}</td>

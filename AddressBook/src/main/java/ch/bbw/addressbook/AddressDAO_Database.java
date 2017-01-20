@@ -19,7 +19,7 @@ import javax.inject.Named;
 @ApplicationScoped
 public class AddressDAO_Database implements AddressDAO {
 	
-	private Connection connection; // TODO: to be replaced by connection pool
+	private Connection connection;
 	
 	public AddressDAO_Database() {
 	}

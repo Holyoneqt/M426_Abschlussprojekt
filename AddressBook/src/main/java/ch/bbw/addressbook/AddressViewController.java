@@ -3,6 +3,7 @@ package ch.bbw.addressbook;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
+import javax.faces.event.ValueChangeEvent;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -35,6 +36,11 @@ public class AddressViewController {
         phoneNumber = "";    	
     }
         
+    public void orderByChanged(ValueChangeEvent e) {
+    	this.orderBy = e.getNewValue().toString();
+    	System.out.println("ORDER BY:" + this.orderBy);
+    }
+    
     public void saveAddress() {
         Address address = new Address(0, firstname, lastname, phoneNumber,email,category,city,gender);
         addressService.registerAddress(address);
@@ -43,11 +49,7 @@ public class AddressViewController {
     }
     
     public List<Address> getAddresses() {
-        return addressService.getAllAddresses();
-    }
-    
-    public List<Address> getAddresses(String sort) {
-    	return addressService.getAllAddressesSorted(sort);
+        return addressService.getAllAddresses(orderBy);
     }
     
     public String getFirstname() {

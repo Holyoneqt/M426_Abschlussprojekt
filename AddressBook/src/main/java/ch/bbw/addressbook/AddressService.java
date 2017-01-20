@@ -23,9 +23,9 @@ public class AddressService {
 		return addresses;
 	}
 	
-	public List<Address> getAllAddressesSorted(String sort) {
+	public List<Address> getAllAddresses(String sort) {
 		List<Address> addresses = addressDAO.readAll();
-		addresses.sort(new AddressComparator());
+		addresses.sort(new AddressComparator(sort));
 		
 		return addresses;
 	}
