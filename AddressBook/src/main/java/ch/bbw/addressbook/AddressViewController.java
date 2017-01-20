@@ -13,12 +13,14 @@ public class AddressViewController {
 	@Inject
 	private AddressService addressService;
 	
+	private String orderBy = "lastname";
+	
     private String firstname;
     private String lastname;
     private String phoneNumber;
     
     private String message;
-    
+        
     public AddressViewController() {
     	message = "";
 	}
@@ -28,14 +30,20 @@ public class AddressViewController {
         lastname = "";
         phoneNumber = "";    	
     }
+        
     public void saveAddress() {
         Address address = new Address(0, firstname, lastname, phoneNumber);
         addressService.registerAddress(address);
         message = "The address was saved successfully.";
         clearFields();
     }
+    
     public List<Address> getAddresses() {
         return addressService.getAllAddresses();
+    }
+    
+    public List<Address> getAddresses(String sort) {
+    	return addressService.getAllAddressesSorted(sort);
     }
     
     public String getFirstname() {
@@ -60,8 +68,17 @@ public class AddressViewController {
 	public String getMessage() {
 		return message;
 	}
+	
 	public void setMessage(String message) {
 		this.message = message;
 	}
 
+	public String getOrderBy() {
+		return orderBy;
+	}
+	
+	public void setOrderBy(String orderBy) {
+		this.orderBy = orderBy;
+	}
+	
 }

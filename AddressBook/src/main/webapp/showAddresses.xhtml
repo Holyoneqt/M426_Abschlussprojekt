@@ -1,38 +1,57 @@
 <!DOCTYPE html>
 <ui:composition template="WEB-INF/template.xhtml"
-                xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:h="http://java.sun.com/jsf/html"
-                xmlns:f="http://java.sun.com/jsf/core"
-                xmlns:ui="http://java.sun.com/jsf/facelets">
-                
-    <ui:define name="title">Address Book</ui:define>
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
 
-    <ui:define name="content" >
+	<ui:define name="title">Address Book</ui:define>
+
+	<ui:define name="content">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-8 col-xs-12">
 					<table class="table table-responsive">
-					<thead>
-						<tr>
-							<th>Lastname</th>
-							<th>Firstname</th>
-							<th>Phone number</th>
-							<th>Registration Date</th>
-						</tr>
-					</thead>
-					<tbody>
-			            <ui:repeat var="address" value="#{addressViewController.addresses}">
+						<thead>
 							<tr>
-								<td>#{address.lastname}</td>
-								<td>#{address.firstname}</td>
-								<td>#{address.phonenumber}</td>
-								<td>#{address.registrationDate}</td>
+								<h:form>
+								<td>Sort by:</td>
+								<td>
+									<h:selectOneMenu value="#{addressViewController.orderBy}">
+										<f:selectItem itemValue="lastname"
+											itemLabel="Lastname" />
+										<f:selectItem itemValue="firstname"
+											itemLabel="Firstname" />
+										<f:selectItem itemValue="phonenumber"
+											itemLabel="Phone Number" />
+										<f:selectItem itemValue="regdate"
+											itemLabel="Registration Date" />
+									</h:selectOneMenu>
+								</td>
+								<td><2h:commandButton action="#{addressViewController.getAddresses()}" value="Sort" /></td>
+								</h:form>
 							</tr>
-			            </ui:repeat>
-					</tbody>
+							<tr>
+								<th>Lastname</th>
+								<th>Firstname</th>
+								<th>Phone number</th>
+								<th>Registration Date</th>
+							</tr>
+						</thead>
+						<tbody>
+							<ui:repeat var="address"
+								value="#{addressViewController.getAddresses(addressViewController.orderBy)}">
+								<tr>
+									<td>#{address.lastname}</td>
+									<td>#{address.firstname}</td>
+									<td>#{address.phonenumber}</td>
+									<td>#{address.registrationDate}</td>
+								</tr>
+							</ui:repeat>
+						</tbody>
 					</table>
 				</div>
 			</div>
 		</div>
-    </ui:define>
+	</ui:define>
 </ui:composition>

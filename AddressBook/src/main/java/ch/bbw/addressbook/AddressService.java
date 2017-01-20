@@ -18,9 +18,13 @@ public class AddressService {
 	
 	public List<Address> getAllAddresses() {
 		List<Address> addresses = addressDAO.readAll();
-
-		// TODO: Hier Sortierung einbauen
+		addresses.sort(new AddressComparator());
+		
+		return addresses;
+	}
 	
+	public List<Address> getAllAddressesSorted(String sort) {
+		List<Address> addresses = addressDAO.readAll();
 		addresses.sort(new AddressComparator());
 		
 		return addresses;
