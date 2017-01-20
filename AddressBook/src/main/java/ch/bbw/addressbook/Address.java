@@ -14,6 +14,10 @@ public class Address {
     private String city;
     private String gender;
 
+    public Address(int id, String firstname, String lastname, String phonenumber, Date regdate) {
+    	this(id, firstname, lastname, phonenumber, "", 0, "", "");
+    }
+    
     public Address(int id, String firstname, String lastname, String phonenumber, String email, int category, String city, String gender) {
     	this(id, firstname, lastname, phonenumber, null, email, category, city, gender);
     }

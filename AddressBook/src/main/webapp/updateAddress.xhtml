@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<ui:composition template="WEB-INF/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<ui:define name="title">Address Book</ui:define>
+
+	<ui:define name="content">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-8 col-xs-12">
+					<h:form>
+						<table class="table" style="max-width: 500px;">
+							<tbody>
+								<tr>
+									<td style="width: 150px;">Id</td>
+									<td style="width: 350px;"><h:outputText
+											value="#{addressViewController.updateAddress.id}" /></td>
+								</tr>
+								<tr>
+									<td>Firstname</td>
+									<td><h:inputText
+											value="#{addressViewController.updateAddress.firstname}" /></td>
+								</tr>
+								<tr>
+									<td>Lastname</td>
+									<td><h:inputText
+											value="#{addressViewController.updateAddress.lastname}" /></td>
+								</tr>
+								<tr>
+									<td>Phone Number</td>
+									<td><h:inputText
+											value="#{addressViewController.updateAddress.phonenumber}" /></td>
+								</tr>
+								<tr>
+									<td>E-Mail</td>
+									<td><h:inputText
+											value="#{addressViewController.updateAddress.email}" /></td>
+								</tr>
+								<tr>
+									<td>City</td>
+									<td><h:inputText
+											value="#{addressViewController.updateAddress.city}" /></td>
+								</tr>
+								<tr>
+									<td>### gender ###</td>
+									<td><h:inputText
+											value="#{addressViewController.updateAddress.gender}" /></td>
+								</tr>
+								<tr>
+									<td colspan="2"><h:commandButton styleClass="btn btn-success btn-block" action="showAddresses" value="Save" /> </td>
+								</tr>
+							</tbody>
+						</table>
+					</h:form>
+				</div>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>

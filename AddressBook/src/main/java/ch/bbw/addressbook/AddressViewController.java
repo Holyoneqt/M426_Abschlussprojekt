@@ -25,6 +25,7 @@ public class AddressViewController {
     private String gender;
     
     private String message;
+    private Address updateAddress;
         
     public AddressViewController() {
     	message = "";
@@ -38,7 +39,6 @@ public class AddressViewController {
         
     public void orderByChanged(ValueChangeEvent e) {
     	this.orderBy = e.getNewValue().toString();
-    	System.out.println("ORDER BY:" + this.orderBy);
     }
     
     public void saveAddress() {
@@ -50,6 +50,11 @@ public class AddressViewController {
     
     public List<Address> getAddresses() {
         return addressService.getAllAddresses(orderBy);
+    }
+    
+    public String update(Address a) {
+    	this.setUpdateAddress(a);
+    	return "updateAddress";
     }
     
     public String getFirstname() {
@@ -108,6 +113,14 @@ public class AddressViewController {
 	
 	public void setOrderBy(String orderBy) {
 		this.orderBy = orderBy;
+	}
+
+	public Address getUpdateAddress() {
+		return updateAddress;
+	}
+
+	public void setUpdateAddress(Address updateAddress) {
+		this.updateAddress = updateAddress;
 	}
 	
 }

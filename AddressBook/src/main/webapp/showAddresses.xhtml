@@ -54,6 +54,11 @@
 									<td>#{address.category}</td>
 									<td>#{address.city}</td>
 									<td>#{address.gender}</td>
+									<h:form>
+										<td>
+											<h:commandButton styleClass="btn btn-link" action="#{addressViewController.update(address)}" value="Edit" />
+										</td>
+									</h:form>
 								</tr>
 							</ui:repeat>
 						</tbody>
