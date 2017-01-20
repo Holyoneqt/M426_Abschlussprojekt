@@ -53,12 +53,16 @@ public class AddressDAO_Database implements AddressDAO {
 	public void create(Address address) {
 		try {
 			String sql = "INSERT INTO address"
-					+ "(FIRSTNAME, LASTNAME, PHONENUMBER, REGISTRATIONDATE) VALUES"
-					+ "(?,?,?,?)";
+					+ "(FIRSTNAME, LASTNAME, PHONENUMBER, REGISTRATIONDATE,EMAIL,CATEGORY,CITY,GENDER) VALUES"
+					+ "(?,?,?,?,?,?,?,?)";
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, address.getFirstname());
 			preparedStatement.setString(2, address.getLastname());
 			preparedStatement.setString(3, address.getPhonenumber());
+			preparedStatement.setString(5, address.getEmail());
+			preparedStatement.setInt(6, address.getCategory());
+			preparedStatement.setString(7, address.getCity());
+			preparedStatement.setString(8, address.getGender());
 			preparedStatement.setTimestamp(4, new Timestamp(address.getRegistrationDate().getTime()));
 			
 			preparedStatement .executeUpdate();
@@ -89,7 +93,8 @@ public class AddressDAO_Database implements AddressDAO {
 				list.add(new Address(
 						entries.getInt("id"), entries.getString("firstname"), 
 						entries.getString("lastname"), entries.getString("phonenumber"),
-						entries.getDate("registrationDate")));
+						entries.getDate("registrationDate"),entries.getString("email"),entries.getInt("category"),
+						entries.getString("city"),entries.getString("gender")));
 			}
 			entries.close();
 			stmt.close();
