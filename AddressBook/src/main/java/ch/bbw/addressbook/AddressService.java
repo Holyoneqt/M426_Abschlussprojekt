@@ -40,6 +40,10 @@ public class AddressService {
 		addressDAO.create(address);
 	}
 
+	public void update(Address a) {
+		this.addressDAO.update(a);
+	}
+	
 	public void setAddressDAO(AddressDAO addressDAO) {
 		this.addressDAO = addressDAO;
 	}

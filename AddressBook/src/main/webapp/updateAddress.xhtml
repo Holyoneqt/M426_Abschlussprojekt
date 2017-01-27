@@ -17,40 +17,42 @@
 								<tr>
 									<td style="width: 150px;">Id</td>
 									<td style="width: 350px;"><h:outputText
-											value="#{addressViewController.updateAddress.id}" /></td>
+											value="#{editAddressController.address.id}" /></td>
 								</tr>
 								<tr>
 									<td>Firstname</td>
 									<td><h:inputText
-											value="#{addressViewController.updateAddress.firstname}" /></td>
+											value="#{editAddressController.firstname}" /></td>
 								</tr>
 								<tr>
 									<td>Lastname</td>
 									<td><h:inputText
-											value="#{addressViewController.updateAddress.lastname}" /></td>
+											value="#{editAddressController.lastname}" /></td>
 								</tr>
 								<tr>
 									<td>Phone Number</td>
 									<td><h:inputText
-											value="#{addressViewController.updateAddress.phonenumber}" /></td>
+											value="#{editAddressController.phonenumber}" /></td>
 								</tr>
 								<tr>
 									<td>E-Mail</td>
 									<td><h:inputText
-											value="#{addressViewController.updateAddress.email}" /></td>
+											value="#{editAddressController.email}" /></td>
 								</tr>
 								<tr>
 									<td>City</td>
 									<td><h:inputText
-											value="#{addressViewController.updateAddress.city}" /></td>
+											value="#{editAddressController.city}" /></td>
 								</tr>
 								<tr>
 									<td>### gender ###</td>
 									<td><h:inputText
-											value="#{addressViewController.updateAddress.gender}" /></td>
+											value="#{editAddressController.gender}" /></td>
 								</tr>
 								<tr>
-									<td colspan="2"><h:commandButton styleClass="btn btn-success btn-block" action="showAddresses" value="Save" /> </td>
+									<td colspan="2">
+										<h:commandButton styleClass="btn btn-success btn-block" action="#{editAddressController.update()}" value="Save" /> 
+									</td>
 								</tr>
 							</tbody>
 						</table>

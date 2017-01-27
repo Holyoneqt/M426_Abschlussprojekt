@@ -104,12 +104,20 @@ public class AddressDAO_Database implements AddressDAO {
 		return list;
 	}
 
-	/* (non-Javadoc)
-	 * @see ch.bbw.addressbook.AddressDAOInterface#update(ch.bbw.addressbook.Address)
-	 */
-//	@Override
+	@Override
 	public void update(Address address) {
-		// TODO: update, not implemented yet
+			PreparedStatement stmt;
+		try {			
+			stmt = connection.prepareStatement("UPDATE address SET firstname='"+address.getFirstname()+
+					"',lastname='"+address.getLastname()+"',phonenumber='"+address.getPhonenumber()+
+					"',email='"+address.getEmail()+
+					"',category='"+address.getCategory()+"',city='"+address.getCity()+"',gender='"+
+					address.getGender()+"' WHERE id="+address.getId());
+			stmt.executeUpdate();
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/* (non-Javadoc)
