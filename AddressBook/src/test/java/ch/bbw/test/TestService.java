@@ -7,7 +7,6 @@ import java.util.List;
 import org.junit.Test;
 
 import ch.bbw.addressbook.Address;
-import ch.bbw.addressbook.AddressComparator;
 import ch.bbw.addressbook.AddressService;
 
 public class TestService {
